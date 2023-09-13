@@ -1,0 +1,22 @@
+{
+  "name": "monorepo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-native": "^0.72.4",
+    "react-native-web": "^0.19.8"
+  },
+  "devDependencies": {
+    "@tsconfig/react-native": "^3.0.2",
+    "@types/jest": "^29.5.4"
+  }
+}
