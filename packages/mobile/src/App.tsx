@@ -25,7 +25,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import {HelloWorld, ColoredTest, API} from '@monorepo/shared';
+import {HelloWorld, ColoredTest, API, Input} from '@monorepo/shared';
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
@@ -65,7 +65,7 @@ function App(): JSX.Element {
   const [string, setString] = useState('');
 
   function handleAPICall() {
-    API.getHeaders().then(res => setString(res.data.headers.Host));
+    API.getHeaders().then(res => setString(res));
   }
 
   return (
@@ -100,8 +100,15 @@ function App(): JSX.Element {
             onPress={() => handleAPICall()}>
             <HelloWorld />
             <ColoredTest />
+
             <Text>API text: {string}</Text>
           </TouchableOpacity>
+          <Input.Root>
+            <Input.Label text="label do mobile" />
+            <Input.Content placeholder="digite aqui o texto mobile" />
+            <Input.Icon name="x" color="#a23e09" size={20} />
+            <Input.Alert />
+          </Input.Root>
           <LearnMoreLinks />
         </View>
       </ScrollView>

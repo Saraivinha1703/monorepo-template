@@ -1,4 +1,5 @@
 import {styled} from 'nativewind';
+
 import {
   View as RNView,
   Text as RNText,

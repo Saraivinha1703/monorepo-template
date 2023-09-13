@@ -2,14 +2,14 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import {HelloWorld, ColoredTest, API} from '@monorepo/shared';
+import {HelloWorld, ColoredTest, API, Input} from '@monorepo/shared';
 
 function App() {
   const [count, setCount] = useState(0);
   const [string, setString] = useState('');
 
   function handleAPICall() {
-    API.getHeaders().then((res) => setString(res.data.headers.Host))
+    API.getHeaders().then((res) => setString(res))
   }
 
   return (
@@ -36,6 +36,12 @@ function App() {
         <button className="bg-slate-400 p-1 m-3" onClick={() => handleAPICall()}>
           API text: {string}
         </button>
+        <Input.Root>
+          <Input.Label text="label do input"/>
+          <Input.Content placeholder="digite um texto"/>
+          <Input.Icon name="american-football-outline" color="#555" size={30}/>
+          <Input.Warning/>
+        </Input.Root>
         </div>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
