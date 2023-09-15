@@ -1,11 +1,20 @@
-import { TextInput } from "../../lib/nativewind";
+import {TextInput} from '../../lib/nativewind';
+import {TextInputProps} from 'react-native';
+import {StyledComponent, StyledProps} from 'nativewind';
+import clsx from 'clsx';
 
-interface InputContentProps {
-    placeholder: string;
-}
+type InputContentProps = StyledProps<TextInputProps>;
 
-export function InputContent({placeholder}: InputContentProps) {
-    return (
-        <TextInput placeholder={placeholder} className="text-white border border-blue-500 p-1 rounded-lg m-1"/>
-    )
+export function InputContent(props: InputContentProps) {
+  return (
+    <StyledComponent
+      component={TextInput}
+      {...props}
+      placeholder={props.placeholder}
+      className={clsx(
+        props.className,
+        'border-testGreen-500 placeholder-testGreen-800 m-1 h-11 w-1/2 rounded-lg border p-1 text-white',
+      )}
+    />
+  );
 }

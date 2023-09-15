@@ -1,9 +1,15 @@
-import {Text, View} from '../../lib/nativewind';
+import {StyledProps, StyledComponent} from 'nativewind';
+import {Text} from '../../lib/nativewind';
+import {TextProps} from 'react-native';
+import {clsx} from 'clsx';
+type HelloWorldProps = StyledProps<TextProps>;
 
-export const HelloWorld = () => {
+export const HelloWorld = (props: HelloWorldProps) => {
   return (
-    <View className="bg-gray-800 items-center w-full">
-      <Text className="text-white">Hello World :)</Text>
-    </View>
+    <StyledComponent
+      component={Text}
+      className={clsx(props.className, 'text-white')}
+      {...props}
+    />
   );
 };

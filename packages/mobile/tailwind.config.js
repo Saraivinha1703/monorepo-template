@@ -1,9 +1,13 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   presets: [require('@monorepo/shared/tailwind.config')],
+  content: [
+    '../../packages/shared/**/*.{js,ts,jsx,tsx}',
+    './src/**/*.{js,ts,jsx,tsx}',
+  ],
   theme: {
     extend: {},
   },
-  content: ['../shared/**/*.{js,ts,jsx,tsx}', './src/**/*.{js,ts,jsx,tsx}'],
   plugins: [require('nativewind/tailwind/native')],
 };

@@ -25,7 +25,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import {HelloWorld, ColoredTest, API, Input} from '@monorepo/shared';
+import {HelloWorld, API, Input} from '@monorepo/shared';
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
@@ -95,20 +95,29 @@ function App(): JSX.Element {
           <Section title="Learn More">
             Read the docs to discover what to do next:
           </Section>
+          <View className="items-center">
+            <HelloWorld className="bg-testGreen-500 w-1/3 p-1 text-center text-white">
+              Hello World Mobile
+            </HelloWorld>
+          </View>
           <TouchableOpacity
-            className="bg-red-900 w-10/12 items-center self-center p-3 m-2"
+            className="bg-testGreen-500 m-2 items-center self-center rounded-lg p-3"
             onPress={() => handleAPICall()}>
-            <HelloWorld />
-            <ColoredTest />
-
-            <Text>API text: {string}</Text>
+            <View>
+              <Text className="text-white">API text: {string}</Text>
+            </View>
           </TouchableOpacity>
-          <Input.Root>
-            <Input.Label text="label do mobile" />
-            <Input.Content placeholder="digite aqui o texto mobile" />
-            <Input.Icon name="x" color="#a23e09" size={20} />
-            <Input.Alert />
+          <Input.Root className="flex-col">
+            <Input.Label>label do mobile</Input.Label>
+            <Input.Root className="items-center justify-start">
+              <Input.Content
+                placeholder="digite aqui o texto mobile"
+                className="w-[75%]"
+              />
+              <Input.Alert className="ml-4" />
+            </Input.Root>
           </Input.Root>
+
           <LearnMoreLinks />
         </View>
       </ScrollView>
