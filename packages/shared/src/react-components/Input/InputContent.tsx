@@ -13,7 +13,7 @@ export function InputContent(props: InputContentProps) {
       placeholder={props.placeholder}
       className={clsx(
         props.className,
-        'border-testGreen-500 placeholder-testGreen-800 m-1 h-11 w-1/2 rounded-lg border p-1 text-white',
+        'border-testGreen-500 dark:border-testGold-500 placeholder-testGreen-800 dark:placeholder-testGold-700 m-1 h-11 w-1/2 rounded-lg border-2 p-1 text-gray-800 dark:text-white',
       )}
     />
   );

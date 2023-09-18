@@ -1,17 +1,16 @@
-import clsx from 'clsx';
+import React from 'react';
 import {Text} from '../../lib/nativewind';
 import {StyledComponent, StyledProps} from 'nativewind';
 import {TextProps} from 'react-native';
-type InputLabelProps = StyledProps<TextProps>;
+import clsx from 'clsx';
 
-export function InputLabel(props: InputLabelProps) {
+type ButtonTextProps = StyledProps<TextProps>;
+
+export function ButtonText(props: ButtonTextProps) {
   return (
     <StyledComponent
       component={Text}
-      className={clsx(
-        props.className,
-        'text-md ml-2 text-gray-800 dark:text-white',
-      )}
+      className={clsx(props.className, 'text-gray-800 dark:text-white')}
       {...props}>
       {props.children}
     </StyledComponent>

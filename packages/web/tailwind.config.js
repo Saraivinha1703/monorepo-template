@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   presets: [require('@monorepo/shared/tailwind.config')],
   content: [
     '../../packages/shared/**/*.{js,ts,jsx,tsx}',

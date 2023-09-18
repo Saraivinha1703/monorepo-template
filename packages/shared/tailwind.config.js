@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -30,6 +31,19 @@ module.exports = {
           800: '#89580a',
           900: '#74480f',
           950: '#442604',
+        },
+        torchRed: {
+          50: '#ffeff2',
+          100: '#ffe0e6',
+          200: '#ffc6d4',
+          300: '#ff97af',
+          400: '#ff5d86',
+          500: '#ff2461',
+          600: '#ff0655',
+          700: '#d70044',
+          800: '#b40042',
+          900: '#99023f',
+          950: '#57001d',
         },
       },
     },
