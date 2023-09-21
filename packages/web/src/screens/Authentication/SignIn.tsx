@@ -6,6 +6,7 @@ import {
   testGold,
   testGray,
   torchRed,
+  testLightGray,
 } from '../../../../assets/tailwindCustomThemesColors';
 import LinearGradient from 'react-native-linear-gradient';
 import {StyledComponent} from 'nativewind';
@@ -27,9 +28,13 @@ export function SignIn() {
   return (
     <div className="flex h-screen items-center justify-center bg-white dark:bg-gray-900">
       <StyledComponent
-        className="flex w-[55%] flex-col items-center justify-center rounded-lg p-3 shadow-xl shadow-gray-900/50"
+        className="flex w-[55%] flex-col items-center justify-center rounded-lg p-3 shadow-xl shadow-gray-900/30"
         component={LinearGradient}
-        colors={[testGray[700], testGray[900], testGray[950]]}
+        colors={
+          isLightMode
+            ? [testLightGray[50], testLightGray[200], '#fff']
+            : [testGray[600], testGray[800], testGray[950]]
+        }
         start={{x: 0, y: 1}}
         end={{x: 0, y: 1}}
         useAngle
@@ -44,7 +49,7 @@ export function SignIn() {
               Email:
             </Input.Label>
             <Input.Content
-              className="w-full"
+              className="w-full transition-shadow hover:shadow-md hover:shadow-black/20"
               placeholder="Digite aqui o seu email"
               onChangeText={e => (email.current = e)}
             />
@@ -54,16 +59,17 @@ export function SignIn() {
               Palavra Passe:
             </Input.Label>
             <Input.Content
-              className="w-full"
+              className="w-full transition-shadow hover:shadow-md hover:shadow-black/20"
               placeholder="Digite aqui a sua Palavra Passe"
               onChangeText={e => (password.current = e)}
               secureTextEntry
             />
           </Input.Root>
         </div>
-        <div className="flex w-1/2 flex-row justify-evenly">
+        <div className="mb-2 flex w-1/2 flex-row justify-evenly">
           <Button.Root onPress={() => HandleSubmit()}>
             <Button.Submit
+              className="rounded-xl px-6 py-2 shadow-lg shadow-green-500/50 transition-shadow delay-75 ease-in-out hover:shadow-lg hover:shadow-green-500"
               colors={
                 isLightMode
                   ? [testGreen[200], testGreen[500]]
@@ -79,6 +85,7 @@ export function SignIn() {
 
           <Button.Root onPress={() => HandleClear()}>
             <Button.Cancel
+              className="rounded-xl px-6 py-2 shadow-lg shadow-red-500/50 transition-shadow delay-75 ease-in-out hover:shadow-lg hover:shadow-red-500"
               colors={
                 isLightMode
                   ? [torchRed[200], torchRed[500]]
@@ -89,7 +96,7 @@ export function SignIn() {
               useAngle
               angleCenter={{x: 0, y: 0.5}}
               angle={30}>
-              <Button.Text className="font-bold text-gray-800 dark:text-white">
+              <Button.Text className="font-bold text-gray-800  dark:text-white">
                 Clear
               </Button.Text>
             </Button.Cancel>

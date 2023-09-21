@@ -7,6 +7,7 @@ import {
   testGold,
   torchRed,
   testGray,
+  testLightGray,
 } from '../../../assets/tailwindCustomThemesColors';
 import LinearGradient from 'react-native-linear-gradient';
 import {StyledComponent} from 'nativewind';
@@ -26,16 +27,20 @@ export const SignIn = () => {
 
   return (
     <View className="flex-1 items-center justify-center bg-white dark:bg-gray-900">
-      <View className="w-full">
+      <View className="w-full ">
         <StyledComponent
-          colors={[testGray[600], testGray[800], testGray[950]]}
+          colors={
+            isLightMode
+              ? [testLightGray[50], testLightGray[200], '#fff']
+              : [testGray[600], testGray[800], testGray[950]]
+          }
           start={{x: 0, y: 1}}
           end={{x: 0, y: 1}}
           useAngle
           angleCenter={{x: 0, y: 0.5}}
-          angle={40}
+          angle={35}
           component={LinearGradient}
-          className="mx-5 items-center justify-center rounded-xl p-3">
+          className="mx-5 items-center justify-center rounded-xl p-3 shadow-xl shadow-black">
           <Text className="text-lg font-bold text-gray-800 dark:text-white">
             Sign In
           </Text>
@@ -69,7 +74,7 @@ export const SignIn = () => {
           <View className="w-3/4 flex-row justify-evenly">
             <Button.Root onPress={() => HandleSubmit()}>
               <Button.Submit
-                className="shadow-lg shadow-yellow-500"
+                className="shadow-lg shadow-green-500 dark:shadow-yellow-500"
                 colors={
                   isLightMode
                     ? [testGreen[200], testGreen[500]]
