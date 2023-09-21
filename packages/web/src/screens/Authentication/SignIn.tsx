@@ -69,7 +69,7 @@ export function SignIn() {
         <div className="mb-2 flex w-1/2 flex-row justify-evenly">
           <Button.Root onPress={() => HandleSubmit()}>
             <Button.Submit
-              className="rounded-xl px-6 py-2 shadow-lg shadow-green-500/50 transition-shadow delay-75 ease-in-out hover:shadow-lg hover:shadow-green-500"
+              className="rounded-xl px-6 py-2 shadow-lg shadow-green-500/50 transition-shadow delay-75 ease-in-out hover:shadow-lg hover:shadow-green-500 dark:shadow-yellow-500/50 dark:hover:shadow-yellow-500"
               colors={
                 isLightMode
                   ? [testGreen[200], testGreen[500]]
@@ -89,7 +89,7 @@ export function SignIn() {
               colors={
                 isLightMode
                   ? [torchRed[200], torchRed[500]]
-                  : [torchRed[500], torchRed[700]]
+                  : [torchRed[400], torchRed[700]]
               }
               start={{x: 0, y: 1.5}}
               end={{x: 1, y: 0}}
