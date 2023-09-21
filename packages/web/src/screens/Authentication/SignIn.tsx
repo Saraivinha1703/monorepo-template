@@ -55,7 +55,7 @@ export function SignIn() {
             />
           </Input.Root>
           <Input.Root className="mb-3 flex w-3/4 flex-row items-center justify-start">
-            <Input.Label className="mr-5 text-lg text-gray-800 dark:text-white">
+            <Input.Label className="mr-5 w-1/4 text-lg text-gray-800 dark:text-white">
               Palavra Passe:
             </Input.Label>
             <Input.Content
