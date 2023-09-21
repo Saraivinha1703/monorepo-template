@@ -1,10 +1,20 @@
 import {useRef} from 'react';
 import {Button, Input} from '@monorepo/shared';
+import {useColorScheme} from 'nativewind';
+import {
+  testGreen,
+  testGold,
+  testGray,
+  torchRed,
+} from '../../../../assets/tailwindCustomThemesColors';
+import LinearGradient from 'react-native-linear-gradient';
+import {StyledComponent} from 'nativewind';
 
 export function SignIn() {
   const email = useRef('');
   const password = useRef('');
-
+  const {colorScheme} = useColorScheme();
+  const isLightMode = colorScheme === 'light';
   function HandleSubmit() {
     console.log('email: ', email.current);
     console.log('password: ', password.current);
@@ -16,51 +26,76 @@ export function SignIn() {
 
   return (
     <div className="flex h-screen items-center justify-center bg-white dark:bg-gray-900">
-      <div className="flex w-9/12 flex-col items-center justify-center rounded-lg bg-gray-200 p-3 dark:bg-gray-700">
+      <StyledComponent
+        className="flex w-[55%] flex-col items-center justify-center rounded-lg p-3 shadow-xl shadow-gray-900/50"
+        component={LinearGradient}
+        colors={[testGray[700], testGray[900], testGray[950]]}
+        start={{x: 0, y: 1}}
+        end={{x: 0, y: 1}}
+        useAngle
+        angleCenter={{x: 0, y: 0.5}}
+        angle={30}>
         <p className="my-2 text-lg font-bold text-gray-800 dark:text-white">
           Sign In
         </p>
-        <div className="my-4 w-full">
-          <Input.Root className="mb-3 flex flex-row items-center justify-start">
-            <Input.Label className="mr-5 text-gray-800 dark:text-white">
+        <div className="my-4 flex w-full flex-col items-center">
+          <Input.Root className="mb-3 flex w-3/4 flex-row items-center justify-start">
+            <Input.Label className="mr-5 text-lg text-gray-800 dark:text-white">
               Email:
             </Input.Label>
             <Input.Content
-              className="w-1/2"
+              className="w-full"
               placeholder="Digite aqui o seu email"
               onChangeText={e => (email.current = e)}
             />
           </Input.Root>
-          <Input.Root className="mb-3 flex flex-row items-center justify-start">
-            <Input.Label className="mr-5 text-gray-800 dark:text-white">
+          <Input.Root className="mb-3 flex w-3/4 flex-row items-center justify-start">
+            <Input.Label className="mr-5 text-lg text-gray-800 dark:text-white">
               Palavra Passe:
             </Input.Label>
             <Input.Content
-              className="w-1/2"
+              className="w-full"
               placeholder="Digite aqui a sua Palavra Passe"
               onChangeText={e => (password.current = e)}
               secureTextEntry
             />
           </Input.Root>
         </div>
-        <div className="flex flex-row">
+        <div className="flex w-1/2 flex-row justify-evenly">
           <Button.Root onPress={() => HandleSubmit()}>
-            <Button.Submit>
-              <Button.Text className="font-bold text-gray-800 dark:text-white">
+            <Button.Submit
+              colors={
+                isLightMode
+                  ? [testGreen[200], testGreen[500]]
+                  : [testGold[300], testGold[600]]
+              }
+              start={{x: 0, y: 0}}
+              end={{x: 1, y: 0}}>
+              <Button.Text className="font-semibold text-gray-800 dark:text-white">
                 Submit
               </Button.Text>
             </Button.Submit>
           </Button.Root>
 
           <Button.Root onPress={() => HandleClear()}>
-            <Button.Cancel>
+            <Button.Cancel
+              colors={
+                isLightMode
+                  ? [torchRed[200], torchRed[500]]
+                  : [torchRed[500], torchRed[700]]
+              }
+              start={{x: 0, y: 1.5}}
+              end={{x: 1, y: 0}}
+              useAngle
+              angleCenter={{x: 0, y: 0.5}}
+              angle={30}>
               <Button.Text className="font-bold text-gray-800 dark:text-white">
                 Clear
               </Button.Text>
             </Button.Cancel>
           </Button.Root>
         </div>
-      </div>
+      </StyledComponent>
     </div>
   );
 }

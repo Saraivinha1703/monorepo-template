@@ -11,9 +11,7 @@ export function InputRoot(props: RootProps) {
       component={View}
       {...props}
       className={clsx([
-        props.className
-          ? props.className
-          : 'mx-3 my-1 w-full flex-row justify-evenly',
+        props.className ? props.className : 'flex-row justify-evenly',
       ])}>
       {props.children}
     </StyledComponent>

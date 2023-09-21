@@ -15,7 +15,9 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-native": "^0.72.4",
-    "react-native-web": "^0.19.8"
+    "react-native-linear-gradient": "^2.8.3",
+    "react-native-web": "^0.19.8",
+    "react-native-web-linear-gradient": "^1.1.2"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",

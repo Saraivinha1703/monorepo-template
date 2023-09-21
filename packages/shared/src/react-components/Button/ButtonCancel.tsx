@@ -1,18 +1,17 @@
 import React from 'react';
-import {View} from '../../lib/nativewind';
 import {StyledComponent, StyledProps} from 'nativewind';
-import {ViewProps} from 'react-native';
 import clsx from 'clsx';
-
-type ButtonViewProps = StyledProps<ViewProps>;
+import {RNLinearGradient} from '../../lib/nativewind';
+import {LinearGradientProps} from 'react-native-linear-gradient';
+type ButtonViewProps = StyledProps<LinearGradientProps>;
 
 export function ButtonCancel(props: ButtonViewProps) {
   return (
     <StyledComponent
-      component={View}
+      component={RNLinearGradient}
       className={clsx(
         props.className,
-        'dark:bg-torchRed-600 dark:border-b-torchRed-800 h-9 items-center justify-center rounded-xl border-b-4 border-b-red-800 bg-red-500 px-6',
+        'rounded-xl px-6 py-2 shadow-lg shadow-red-500/50',
       )}
       {...props}>
       {props.children}
