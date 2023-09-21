@@ -1,15 +1,15 @@
 import React from 'react';
-import {TouchableOpacity} from '../../lib/nativewind';
+import {Pressable} from '../../lib/nativewind';
 import {StyledComponent, StyledProps} from 'nativewind';
-import {TouchableOpacityProps} from 'react-native';
+import {PressableProps} from 'react-native';
 import clsx from 'clsx';
 
-type ButtonTouchableOpacityProps = StyledProps<TouchableOpacityProps>;
+type ButtonPressableProps = StyledProps<PressableProps>;
 
-export function ButtonRoot(props: ButtonTouchableOpacityProps) {
+export function ButtonRoot(props: ButtonPressableProps) {
   return (
     <StyledComponent
-      component={TouchableOpacity}
+      component={Pressable}
       className={clsx(props.className, 'm-2')}
       {...props}>
       {props.children}

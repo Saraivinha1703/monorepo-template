@@ -7,6 +7,7 @@ import {
   TextInput as RNTextInput,
   ScrollView as RNScrollView,
   TouchableOpacity as RNTouchableOpacity,
+  Pressable as RNPressable,
 } from 'react-native';
 import RNLinearGradient from 'react-native-linear-gradient';
 
@@ -16,4 +17,5 @@ export const Image = styled(RNImage);
 export const TextInput = styled(RNTextInput);
 export const ScrollView = styled(RNScrollView);
 export const TouchableOpacity = styled(RNTouchableOpacity);
+export const Pressable = styled(RNPressable);
 export const LinearGradient = styled(RNLinearGradient);
